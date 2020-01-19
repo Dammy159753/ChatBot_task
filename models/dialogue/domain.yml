@@ -1,0 +1,124 @@
+%YAML 1.1
+---
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_thanks
+- utter_ask_morehelp
+- utter_ask_房子性质
+- utter_ask_房子性质_nobelong
+- utter_ask_房子类型
+- utter_ask_房子区域
+- utter_ask_房子区域_nobelong
+- utter_ask_房子配置
+- utter_ask_房子配置_nobelong
+- utter_ask_房子装修
+- utter_ask_房子家电
+- utter_ask_存房年限
+- utter_ask_存房空置期
+- utter_ask_存房空置期_nobelong
+- utter_ask_存房支付
+- utter_ask_management
+- chatbot.ActionSelect
+config:
+  store_entities_as_slots: true
+entities:
+- item
+- type
+- pay_type
+- year_number
+forms: []
+intents:
+- pay_type:
+    use_entities: true
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- year:
+    use_entities: true
+- confirm_fix:
+    use_entities: true
+- deny_complete:
+    use_entities: true
+- repeat:
+    use_entities: true
+- deny_fix:
+    use_entities: true
+- thanks:
+    use_entities: true
+- confirm_complete:
+    use_entities: true
+- deny:
+    use_entities: true
+- confirm:
+    use_entities: true
+- house_type:
+    use_entities: true
+- request_business:
+    use_entities: true
+slots:
+  item:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  pay_type:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  type:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  year_number:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_management:
+  - text: 已经为您办理好了!
+  utter_ask_morehelp:
+  - text: 还有什么能帮您吗
+  - text: 您还想干什么
+  - text: 您还需要什么服务？
+  utter_ask_存房年限:
+  - text: 存房年限支持3-8年（整年），最低3年，最高8年，请问您需要存多久？
+  utter_ask_存房支付:
+  - text: 存房业务有以下两种支付方式：第一种是分年度支付：按收益价值支付，第一、二年不递增，第三年起每两年递增约6%。具体金额以建方公司评估为准。 第二种是一次性支付:5年的收益，扣除空置期后将一次性支付。请问您选择哪一种？
+  utter_ask_存房空置期:
+  - text: 存房业务办理存在空置期，按每年15天免租期，最少扣2个月，全部要在首年一次性先行扣除。根据您的存房年限，存在60天的空置期，请问您是否需要继续办理？(请您回答是还是不是？)
+  utter_ask_存房空置期_nobelong:
+  - text: 感谢您的办理!
+  utter_ask_房子区域:
+  - text: 目前仅受理杨箕村，潭村，猎德村的回迁房，请问您属于以上区域吗？
+  utter_ask_房子区域_nobelong:
+  - text: 我们暂时只能对指定区域办理存房业务，后续会陆续增加其他区域，请您谅解！
+  utter_ask_房子家电:
+  - text: 请问您的房子家私家电是否齐全？
+  utter_ask_房子性质:
+  - text: 目前仅受理住宅性质及指定楼盘的公寓（万科云城米酷）的存房业务。请问您的房子属于以上性质吗？
+  utter_ask_房子性质_nobelong:
+  - text: 我们暂时只能对指定楼盘办理存房业务，后续会陆续增加其他楼盘，请您谅解！
+  utter_ask_房子类型:
+  - text: 请问您房子属于商品房还是回迁房？
+  utter_ask_房子装修:
+  - text: 请问您的房子是否带装修？
+  utter_ask_房子配置:
+  - text: 请问您的房子水，电，管道煤气是否齐全？
+  utter_ask_房子配置_nobelong:
+  - text: 请您完善水、点、煤气等基础供应后方可办理！
+  utter_default:
+  - text: 您说什么
+  - text: 您能再说一遍吗，我没听清
+  utter_goodbye:
+  - text: 再见，为您服务很开心
+  - text: Bye， 下次再见
+  utter_greet:
+  - text: 您好!，我是机器人小热，很高兴为您服务。
+  - text: 你好!，我是小热，可以帮您办理和查询存房业务。
+  - text: hi!，人家是小热，有什么可以帮您吗。
+  utter_thanks:
+  - text: 不用谢
+  - text: 我应该做的
+  - text: 您开心我就开心
